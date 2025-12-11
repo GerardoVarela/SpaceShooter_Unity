@@ -261,7 +261,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire_Red_4_Right_Big
+      name: Flame_Red_4_Right_Big
       rect:
         serializedVersion: 2
         x: 42
@@ -283,7 +283,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire_Red_4_Left_Big
+      name: Flame_Red_4_Left_Big
       rect:
         serializedVersion: 2
         x: 50
@@ -305,7 +305,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire_Red_4_Left_Small
+      name: Flame_Red_4_Left_Small
       rect:
         serializedVersion: 2
         x: 58
@@ -327,7 +327,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire_Red_4_Right_Small
+      name: Flame_Red_4_Right_Small
       rect:
         serializedVersion: 2
         x: 66
@@ -349,7 +349,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire_Green_4_Right_Big
+      name: Flame_Green_4_Right_Big
       rect:
         serializedVersion: 2
         x: 74
@@ -371,7 +371,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire_Green_4_Left_Small
+      name: Flame_Green_4_Left_Small
       rect:
         serializedVersion: 2
         x: 90
@@ -393,7 +393,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire_Green_4_Right_Small
+      name: Flame_Green_4_Right_Small
       rect:
         serializedVersion: 2
         x: 98
@@ -525,7 +525,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceShooterAssetPack_Miscellaneous_16
+      name: Explosion_Purple_4
       rect:
         serializedVersion: 2
         x: 46
@@ -547,7 +547,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceShooterAssetPack_Miscellaneous_17
+      name: Explosion_Purple_2
       rect:
         serializedVersion: 2
         x: 65
@@ -569,7 +569,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceShooterAssetPack_Miscellaneous_18
+      name: Explosion_Red_1
       rect:
         serializedVersion: 2
         x: 74
@@ -591,7 +591,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceShooterAssetPack_Miscellaneous_19
+      name: Explosion_Red_2
       rect:
         serializedVersion: 2
         x: 97
@@ -613,7 +613,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceShooterAssetPack_Miscellaneous_20
+      name: Explosion_Blue_2
       rect:
         serializedVersion: 2
         x: 97
@@ -1163,7 +1163,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire_Green_4_Left_Big
+      name: Flame_Green_4_Left_Big
       rect:
         serializedVersion: 2
         x: 82
@@ -1295,7 +1295,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceShooterAssetPack_Miscellaneous_51
+      name: Explosion_Purple_1
       rect:
         serializedVersion: 2
         x: 41
@@ -1317,7 +1317,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceShooterAssetPack_Miscellaneous_52
+      name: Explosion_Purple_3
       rect:
         serializedVersion: 2
         x: 56
@@ -1339,7 +1339,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceShooterAssetPack_Miscellaneous_53
+      name: Explosion_Blue_1
       rect:
         serializedVersion: 2
         x: 74
@@ -1361,7 +1361,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceShooterAssetPack_Miscellaneous_54
+      name: Explosion_Red_4
       rect:
         serializedVersion: 2
         x: 79
@@ -1383,7 +1383,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceShooterAssetPack_Miscellaneous_55
+      name: Explosion_Blue_4
       rect:
         serializedVersion: 2
         x: 79
@@ -1405,7 +1405,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceShooterAssetPack_Miscellaneous_56
+      name: Explosion_Blue_3
       rect:
         serializedVersion: 2
         x: 89
@@ -1427,7 +1427,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceShooterAssetPack_Miscellaneous_57
+      name: Explosion_Red_3
       rect:
         serializedVersion: 2
         x: 89
@@ -1550,20 +1550,33 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      1: 360861115
       Bubble_1: 2420995915047738047
       Bubble_2: -2098234290902927331
       Bubble_3: 4207061275628567317
       Bubble_4: -8481609203585259902
       Chain: 1014099370
-      Fire_Green_4_Left_Big: 802313262
-      Fire_Green_4_Left_Small: 5182099672970138797
-      Fire_Green_4_Right_Big: 3831499370416197816
-      Fire_Green_4_Right_Small: 1304386192058496432
-      Fire_Red_4_Left_Big: 6933587369445508384
-      Fire_Red_4_Left_Small: -79717898379710900
+      Explosion_Blue_1: 360861115
+      Explosion_Blue_2: 2703825915951635434
+      Explosion_Blue_3: -2011168697
+      Explosion_Blue_4: -49686652
+      Explosion_Purple_1: -646502529
+      Explosion_Purple_2: 2487812184065979120
+      Explosion_Purple_3: 349260382
+      Explosion_Purple_4: -6834455526537436410
+      Explosion_Red_1: -2127590456799046267
+      Explosion_Red_2: 4644236800638856933
+      Explosion_Red_3: 943706009
+      Explosion_Red_4: -269053241
       Fire_Red_4_Righ_Small: 1304386192058496432
-      Fire_Red_4_Right_Big: -3173528827444466201
-      Fire_Red_4_Right_Small: -1974148178516586906
+      Flame_Green_4_Left_Big: 802313262
+      Flame_Green_4_Left_Small: 5182099672970138797
+      Flame_Green_4_Right_Big: 3831499370416197816
+      Flame_Green_4_Right_Small: 1304386192058496432
+      Flame_Red_4_Left_Big: 6933587369445508384
+      Flame_Red_4_Left_Small: -79717898379710900
+      Flame_Red_4_Right_Big: -3173528827444466201
+      Flame_Red_4_Right_Small: -1974148178516586906
       Heart: 541565823
       Rock_Big: -730468305
       Rock_Small: -442080781
@@ -1571,11 +1584,6 @@ TextureImporter:
       SpaceShooterAssetPack_Miscellaneous_0: 749336644954136105
       SpaceShooterAssetPack_Miscellaneous_1: 5840930754681166438
       SpaceShooterAssetPack_Miscellaneous_11: -765323723098368738
-      SpaceShooterAssetPack_Miscellaneous_16: -6834455526537436410
-      SpaceShooterAssetPack_Miscellaneous_17: 2487812184065979120
-      SpaceShooterAssetPack_Miscellaneous_18: -2127590456799046267
-      SpaceShooterAssetPack_Miscellaneous_19: 4644236800638856933
-      SpaceShooterAssetPack_Miscellaneous_20: 2703825915951635434
       SpaceShooterAssetPack_Miscellaneous_21: 780960871
       SpaceShooterAssetPack_Miscellaneous_22: 475772423
       SpaceShooterAssetPack_Miscellaneous_23: -793777369
@@ -1601,13 +1609,6 @@ TextureImporter:
       SpaceShooterAssetPack_Miscellaneous_44: 1604733181
       SpaceShooterAssetPack_Miscellaneous_46: -176031668
       SpaceShooterAssetPack_Miscellaneous_47: -1465496749
-      SpaceShooterAssetPack_Miscellaneous_51: -646502529
-      SpaceShooterAssetPack_Miscellaneous_52: 349260382
-      SpaceShooterAssetPack_Miscellaneous_53: 360861115
-      SpaceShooterAssetPack_Miscellaneous_54: -269053241
-      SpaceShooterAssetPack_Miscellaneous_55: -49686652
-      SpaceShooterAssetPack_Miscellaneous_56: -2011168697
-      SpaceShooterAssetPack_Miscellaneous_57: 943706009
       SpaceShooterAssetPack_Miscellaneous_58: -2088213916
       SpaceShooterAssetPack_Miscellaneous_59: -728916635
       SpaceShooterAssetPack_Miscellaneous_60: -316408974

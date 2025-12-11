@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
     private AudioSource audioSource;
     public AudioClip explodeSound;
 
+    public GameObject explosion;
+
     void Start()
     {
         startPos = transform.position;
@@ -41,6 +43,9 @@ public class Enemy : MonoBehaviour
         if (collision.CompareTag("Bullet"))
         {
             audioSource.PlayOneShot(explodeSound, 1.5f);
+
+            Instantiate(explosion, transform.position, Quaternion.identity);
+
             Destroy(gameObject);
             Destroy(collision.gameObject);
         }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] GameObject enemyPrefab;
+    [SerializeField] GameObject[] enemyPrefabs;
 
     [SerializeField] Transform spawnLineTop;
     [SerializeField] Transform spawnLineBottom;
@@ -35,7 +35,9 @@ public class EnemySpawner : MonoBehaviour
         float t = Random.Range(0f, 1f);
         Vector3 startPosition = Vector3.Lerp(lineTop, lineBottom, t);
         
-        Instantiate(enemyPrefab, startPosition, enemyPrefab.transform.rotation);
+        int randomEnemy = Random.Range(0, enemyPrefabs.Length);
+
+        Instantiate(enemyPrefabs[randomEnemy], startPosition, enemyPrefabs[randomEnemy].transform.rotation);
     }
 
     // Update is called once per frame
