@@ -3,9 +3,11 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] float speed = 1f;
-    [SerializeField] float amplitude = 1f;
-    [SerializeField] float frequency = 1f; 
-    Vector3 startPos;
+    [SerializeField] Color color = Color.white;
+    public float p_speed
+    {
+        get { return speed; }
+    }
 
     private AudioSource audioSource;
     public AudioClip explodeSound;
@@ -14,28 +16,18 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        startPos = transform.position;
         audioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
+        
     }
 
     void Update()
     {
-        SinusoidalMovement();
+        Movement();
     }
     
-    void SinusoidalMovement()
+    protected virtual void Movement()
     {
-        transform.position += Vector3.left * speed * Time.deltaTime;
-
-        // Apply the sine wave offset
-        float yOffset = Mathf.Sin(Time.time * frequency) * amplitude;
-
-        // Combine linear movement with sine
-        transform.position = new Vector3(
-            transform.position.x,
-            startPos.y + yOffset,
-            startPos.z
-        );
+        transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -44,7 +36,9 @@ public class Enemy : MonoBehaviour
         {
             audioSource.PlayOneShot(explodeSound, 1.5f);
 
-            Instantiate(explosion, transform.position, Quaternion.identity);
+            GameObject explosionPrefab = Instantiate(explosion, transform.position, Quaternion.identity);
+            SpriteRenderer explosionSpriteRenderer = explosionPrefab.GetComponent<SpriteRenderer>();
+            explosionSpriteRenderer.color = color;
 
             Destroy(gameObject);
             Destroy(collision.gameObject);

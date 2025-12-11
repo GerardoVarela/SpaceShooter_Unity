@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 205473466}
   - component: {fileID: 205473465}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: GameSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -414,6 +414,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   enemyPrefabs:
   - {fileID: 5488582678071848543, guid: 0022e9b41f16c204c8f201f7c867bfef, type: 3}
+  - {fileID: 3768225151726737576, guid: fbccdd1bcadeed54fae6595e20378ffb, type: 3}
+  debrisPrefabs:
   - {fileID: 427900801712611185, guid: ea5517be2e0d0b3428526600a4098698, type: 3}
   - {fileID: 6921388090289835994, guid: f0a2162b5c976ad49b231b9eeabfe4ab, type: 3}
   spawnLineTop: {fileID: 1110741879}

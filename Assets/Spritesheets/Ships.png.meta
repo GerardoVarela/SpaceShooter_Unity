@@ -972,7 +972,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceShooterAssetPack_Ships_31
+      name: Enemy_Blue_2
       rect:
         serializedVersion: 2
         x: 85
@@ -1060,7 +1060,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceShooterAssetPack_Ships_35
+      name: Enemy_Purple
       rect:
         serializedVersion: 2
         x: 40
@@ -1082,7 +1082,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceShooterAssetPack_Ships_36
+      name: Enemy_Red
       rect:
         serializedVersion: 2
         x: 49
@@ -1104,7 +1104,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceShooterAssetPack_Ships_37
+      name: Enemy_Blue
       rect:
         serializedVersion: 2
         x: 58
@@ -1126,7 +1126,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceShooterAssetPack_Ships_38
+      name: Enemy_Green
       rect:
         serializedVersion: 2
         x: 67
@@ -1170,7 +1170,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceShooterAssetPack_Ships_40
+      name: Enemy_Yellow
       rect:
         serializedVersion: 2
         x: 85
@@ -1280,7 +1280,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceShooterAssetPack_Ships_45
+      name: Jellyfish
       rect:
         serializedVersion: 2
         x: 50
@@ -1559,6 +1559,13 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
+      Enemy_Blue: 204185582136248754
+      Enemy_Blue_2: 7747378746871507307
+      Enemy_Green: 6091446898311691521
+      Enemy_Purple: -4407398481012305606
+      Enemy_Red: 3967756750343058451
+      Enemy_Yellow: -4135823083762893669
+      Jellyfish: 889740230765739927
       ShipWhite_: -2770624651766692744
       Ship_Green: 3709476225626226640
       Ship_Green_Big: -3629735602928821426
@@ -1597,16 +1604,9 @@ TextureImporter:
       SpaceShooterAssetPack_Ships_29: -4195653700829305104
       SpaceShooterAssetPack_Ships_3: 3694284833043241784
       SpaceShooterAssetPack_Ships_30: -5234547197493575581
-      SpaceShooterAssetPack_Ships_31: 7747378746871507307
-      SpaceShooterAssetPack_Ships_35: -4407398481012305606
-      SpaceShooterAssetPack_Ships_36: 3967756750343058451
-      SpaceShooterAssetPack_Ships_37: 204185582136248754
-      SpaceShooterAssetPack_Ships_38: 6091446898311691521
       SpaceShooterAssetPack_Ships_39: -2678480362431396593
       SpaceShooterAssetPack_Ships_4: -2260674271888982812
-      SpaceShooterAssetPack_Ships_40: -4135823083762893669
       SpaceShooterAssetPack_Ships_44: 1773790620932621867
-      SpaceShooterAssetPack_Ships_45: 889740230765739927
       SpaceShooterAssetPack_Ships_46: -3221296428004167962
       SpaceShooterAssetPack_Ships_47: -6238535206608956156
       SpaceShooterAssetPack_Ships_48: -1713310390475055491
