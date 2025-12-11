@@ -8,33 +8,18 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] Transform spawnLineTop;
     [SerializeField] Transform spawnLineBottom;
 
+    Vector3 lineTop;
+    Vector3 lineBottom;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        StartCoroutine(LineSpawning());
+        lineTop = spawnLineTop.position;
+        lineBottom = spawnLineBottom.position;
+        // StartCoroutine(LineSpawning());
+
+        InvokeRepeating("SpawnEnemy", 0.5f, 2f);
     }
-
-    IEnumerator LineSpawning()
-    {
-        Vector3 lineTop = spawnLineTop.position;
-        Vector3 lineBottom = spawnLineBottom.position;
-
-        for (int i = 0; i < 5; i++)
-        {
-            float t = Random.Range(0f, 1f);
-            Vector3 startPosition = Vector3.Lerp(lineTop, lineBottom, t);
-            
-            Instantiate(enemyPrefab, startPosition, Quaternion.identity);
-            
-            yield return new WaitForSeconds(0.5f);
-        }
-    }
-
-    // void Start()
-    // {
-    //     StartCoroutine(LineSpawning());
-    // }
-
 
     // IEnumerator LineSpawning()
     // {
@@ -45,16 +30,13 @@ public class EnemySpawner : MonoBehaviour
     //     }
     // }
 
-
-    // float verticalBoundary = 0.75f;
-    // float xSpawnPos = 2f;
-    // void SpawnEnemy()
-    // {
-    //     float ySpawnPos = Random.Range(-verticalBoundary, verticalBoundary);
-    //     Vector3 startPosition = new Vector3(xSpawnPos, ySpawnPos, 0);
-
-    //     Instantiate(enemyPrefab, startPosition, enemyPrefab.transform.rotation);
-    // }
+    void SpawnEnemy()
+    {
+        float t = Random.Range(0f, 1f);
+        Vector3 startPosition = Vector3.Lerp(lineTop, lineBottom, t);
+        
+        Instantiate(enemyPrefab, startPosition, enemyPrefab.transform.rotation);
+    }
 
     // Update is called once per frame
     void Update()

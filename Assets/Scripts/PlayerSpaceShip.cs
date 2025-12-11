@@ -11,6 +11,8 @@ public class PlayerSpaceShip : MonoBehaviour
 
     [Header("Shooting")]
     [SerializeField] GameObject projectilePrefab;
+    private AudioSource audioSource;
+    public AudioClip fireSound;
 
     [Header("Controls")]
     [SerializeField] InputActionReference move;
@@ -28,6 +30,11 @@ public class PlayerSpaceShip : MonoBehaviour
         move.action.canceled += OnMove;
 
         shoot.action.started += OnShoot;
+    }
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
     }
 
     Vector2 currentVelocity = Vector2.zero;
@@ -67,6 +74,7 @@ public class PlayerSpaceShip : MonoBehaviour
 
     private void OnShoot(InputAction.CallbackContext context)
     {
-        Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+        audioSource.PlayOneShot(fireSound, 0.8f);
     }
 }
