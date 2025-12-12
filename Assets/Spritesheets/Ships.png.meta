@@ -774,7 +774,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceShooterAssetPack_Ships_22
+      name: Enemy_Violet
       rect:
         serializedVersion: 2
         x: 49
@@ -1564,6 +1564,7 @@ TextureImporter:
       Enemy_Green: 6091446898311691521
       Enemy_Purple: -4407398481012305606
       Enemy_Red: 3967756750343058451
+      Enemy_Violet: 8142612597854966781
       Enemy_Yellow: -4135823083762893669
       Jellyfish: 889740230765739927
       ShipWhite_: -2770624651766692744
@@ -1594,7 +1595,6 @@ TextureImporter:
       SpaceShooterAssetPack_Ships_16: 4031334084150253061
       SpaceShooterAssetPack_Ships_17: -6050712179634004340
       SpaceShooterAssetPack_Ships_21: 1928222687682157613
-      SpaceShooterAssetPack_Ships_22: 8142612597854966781
       SpaceShooterAssetPack_Ships_23: 1786231384694567221
       SpaceShooterAssetPack_Ships_24: -1254335863819240684
       SpaceShooterAssetPack_Ships_25: 4346762671016810746

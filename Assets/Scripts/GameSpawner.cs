@@ -19,10 +19,21 @@ public class GameSpawner : MonoBehaviour
         lineBottom = spawnLineBottom.position;
     }
 
-    public void StartInvoking()
+    private float startDelay = 0.5f;
+    private float enemyInterval = 3.0f;
+    private float debrisInterval = 2.0f;
+    private float decreaseIntervalFactor = 10.0f;
+    public void StartInvoking(int level)
     {
-        InvokeRepeating("SpawnEnemy", 0.5f, 3f);
-        InvokeRepeating("SpawnDebris", 0.5f, 2f);
+        enemyInterval -= level/decreaseIntervalFactor;
+        debrisInterval -= level/decreaseIntervalFactor;
+        InvokeRepeating("SpawnEnemy", startDelay, enemyInterval);
+        InvokeRepeating("SpawnDebris", startDelay, debrisInterval);
+    }
+
+    public void CancelSpawnInvoking()
+    {
+        CancelInvoke();
     }
 
     void SpawnEnemy()

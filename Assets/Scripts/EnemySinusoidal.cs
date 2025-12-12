@@ -11,6 +11,11 @@ public class EnemySinusoidal : Enemy
         startPos = transform.position;
     }
 
+    protected override void UpdateThreatType()
+    {
+        ThreatType =  GameManager.ThreatTypes.Sinusoidal;
+    }
+
     protected override void Movement()
     {
         transform.position += Vector3.left * p_speed * Time.deltaTime;

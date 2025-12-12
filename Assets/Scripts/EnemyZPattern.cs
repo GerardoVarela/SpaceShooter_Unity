@@ -13,6 +13,11 @@ public class EnemyZPattern : Enemy
     {
         startPos = transform.position;
     }
+    
+    protected override void UpdateThreatType()
+    {
+        ThreatType = GameManager.ThreatTypes.ZPattern;
+    }
 
     protected override void Movement()
     {

@@ -12,11 +12,13 @@ public class Debris : MonoBehaviour
     public AudioClip explodeSound;
 
     public GameObject explosion;
+    private GameManager gameManager;
 
 
     void Start()
     {
         cameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         rotationSpeed = Random.Range(minRotationSpeed, maxRotationSpeed);
         orientation = Random.Range(0, 2) == 0 ? 1 : -1;
@@ -48,7 +50,10 @@ public class Debris : MonoBehaviour
             Instantiate(explosion, transform.position, Quaternion.identity);
 
             Destroy(gameObject);
-            if (!collider.CompareTag("Player")) Destroy(collider.gameObject);
+            if (!collider.CompareTag("Player")) {
+                Destroy(collider.gameObject);
+                gameManager.ThreatDestroyed(GameManager.ThreatTypes.Debris);   
+            }
         }
     }
 }

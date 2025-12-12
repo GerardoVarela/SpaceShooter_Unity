@@ -2,6 +2,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using TMPro;
+
+
 
 
 
@@ -27,6 +31,14 @@ public class MenuUIHandler : MonoBehaviour
     public Image[] livesImages;
     public Sprite heartFull;
     public Sprite heartEmpty;
+
+    [Header("Threats")]
+    public TextMeshProUGUI threatDebrisText;
+    public TextMeshProUGUI threatSinusoidalText;
+    public TextMeshProUGUI threatZPatternText;
+
+    [Header("Level")]
+    public TextMeshProUGUI levelText;
 
     private GameManager gameManager;
 
@@ -55,6 +67,22 @@ public class MenuUIHandler : MonoBehaviour
         }
     }
 
+    public void UpdateThreats(Dictionary<GameManager.ThreatTypes, ThreatConfig> threats)
+    {
+        ThreatConfig debrisConfig = threats[GameManager.ThreatTypes.Debris];
+        ThreatConfig sinusoidalConfig = threats[GameManager.ThreatTypes.Sinusoidal];
+        ThreatConfig zPatternConfig = threats[GameManager.ThreatTypes.ZPattern];
+        
+        threatDebrisText.text = $"{debrisConfig.qty}/{debrisConfig.max}";
+        threatSinusoidalText.text = $"{sinusoidalConfig.qty}/{sinusoidalConfig.max}";
+        threatZPatternText.text = $"{zPatternConfig.qty}/{zPatternConfig.max}";
+    }
+
+    public void UpdateLevel(int level)
+    {
+        levelText.text = "Level " + level;
+    }
+
     public void PauseGame()
     {
         Time.timeScale = 0f;
@@ -72,6 +100,7 @@ public class MenuUIHandler : MonoBehaviour
     public void StartGame() {
         gameManager.StartGame();
         gameStartScreen.SetActive(false);
+        levelText.gameObject.SetActive(true);
         quitGameScreen.SetActive(false);
         gameOnScreen.SetActive(true);
     }
@@ -96,6 +125,6 @@ public class MenuUIHandler : MonoBehaviour
 
     private void OnPause(InputAction.CallbackContext context)
     {
-        PauseGame();
+        if (gameManager.isGameActive) PauseGame();
     }
 }

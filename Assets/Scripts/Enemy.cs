@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
     [SerializeField] float speed = 1f;
     [SerializeField] Color color = Color.white;
@@ -13,11 +13,13 @@ public class Enemy : MonoBehaviour
     public AudioClip explodeSound;
 
     public GameObject explosion;
+    public GameManager gameManager;
 
     void Start()
     {
         cameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
-        
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        UpdateThreatType();
     }
 
     void Update()
@@ -29,6 +31,14 @@ public class Enemy : MonoBehaviour
     {
         transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
     }
+
+    private GameManager.ThreatTypes m_ThreatType;
+    public GameManager.ThreatTypes ThreatType
+    {
+        get { return m_ThreatType; }
+        set { m_ThreatType = value; }
+    }
+    protected abstract void UpdateThreatType();
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -42,7 +52,10 @@ public class Enemy : MonoBehaviour
             explosionSpriteRenderer.color = color;
 
             Destroy(gameObject);
-            if (!collider.CompareTag("Player")) Destroy(collider.gameObject);
+            if (!collider.CompareTag("Player")) {
+                Destroy(collider.gameObject);
+                gameManager.ThreatDestroyed(m_ThreatType);   
+            }
         }
     }
 }
