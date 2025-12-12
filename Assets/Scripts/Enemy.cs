@@ -30,9 +30,25 @@ public class Enemy : MonoBehaviour
         transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    // private void OnTriggerEnter2D(Collider2D collision)
+    // {
+    //     if (collision.CompareTag("Bullet") || collision.CompareTag("Player"))
+    //     {
+    //         audioSource.PlayOneShot(explodeSound, 1.5f);
+
+    //         GameObject explosionPrefab = Instantiate(explosion, transform.position, Quaternion.identity);
+    //         SpriteRenderer explosionSpriteRenderer = explosionPrefab.GetComponent<SpriteRenderer>();
+    //         explosionSpriteRenderer.color = color;
+
+    //         Destroy(gameObject);
+    //         if (!collision.CompareTag("Player")) Destroy(collision.gameObject);
+    //     }
+    // }
+
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Bullet"))
+        Collider2D collider = collision.collider;
+        if (collider.CompareTag("Bullet") || collider.CompareTag("Player"))
         {
             audioSource.PlayOneShot(explodeSound, 1.5f);
 
@@ -41,7 +57,7 @@ public class Enemy : MonoBehaviour
             explosionSpriteRenderer.color = color;
 
             Destroy(gameObject);
-            Destroy(collision.gameObject);
+            if (!collider.CompareTag("Player")) Destroy(collider.gameObject);
         }
     }
 }

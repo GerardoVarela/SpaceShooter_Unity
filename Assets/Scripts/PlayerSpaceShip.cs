@@ -18,6 +18,10 @@ public class PlayerSpaceShip : MonoBehaviour
     [SerializeField] InputActionReference move;
     [SerializeField] InputActionReference shoot;
 
+    [Header("Control Player Boundaries")]
+    private Camera cam;
+    private float halfWidth;
+    private float halfHeight;
 
     void OnEnable()
     {
@@ -25,33 +29,35 @@ public class PlayerSpaceShip : MonoBehaviour
         shoot.action.Enable();
 
         move.action.started += OnMove;
-        // El callback que ocurrira sobre varios metodos que se hayan añadido
         move.action.performed += OnMove;
         move.action.canceled += OnMove;
 
         shoot.action.started += OnShoot;
     }
 
+    private GameManager gameManager;
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        cam = Camera.main;
+
+        // We get the players size to not cut the player in half when colliding with the border of the camera
+        SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();
+        halfWidth = sr.bounds.size.x / 2f;
+        halfHeight = sr.bounds.size.y / 2f;
     }
 
-    Vector2 currentVelocity = Vector2.zero;
-    const float rawMoveThresholdForBraking = 0.1f;
+    
     void Update()
     {
-        if (rawMove.magnitude < rawMoveThresholdForBraking)
-            currentVelocity *= friction * Time.deltaTime;
-        
-        currentVelocity += rawMove * acceleration * Time.deltaTime;
-
-        float linearVelocity = currentVelocity.magnitude;
-        // Clamp recorta por los lados, ni mas pequenio de 0 ni mas grande de maxSpeed
-        linearVelocity = Mathf.Clamp(linearVelocity, 0, maxSpeed);
-        currentVelocity = currentVelocity.normalized * linearVelocity;
-
-        transform.Translate(currentVelocity * Time.deltaTime);
+        if (gameManager.isGameActive)
+        {
+            Movement();
+            PreventLeavingScreen();    
+        }
     }
 
     void OnDisable()
@@ -66,6 +72,37 @@ public class PlayerSpaceShip : MonoBehaviour
         shoot.action.started -= OnShoot;
     }
 
+    Vector2 currentVelocity = Vector2.zero;
+    const float rawMoveThresholdForBraking = 0.1f;
+    void Movement()
+    {
+        if (rawMove.magnitude < rawMoveThresholdForBraking)
+            currentVelocity *= friction * Time.deltaTime;
+        
+        currentVelocity += rawMove * acceleration * Time.deltaTime;
+
+        float linearVelocity = currentVelocity.magnitude;
+        linearVelocity = Mathf.Clamp(linearVelocity, 0, maxSpeed);
+        currentVelocity = currentVelocity.normalized * linearVelocity;
+
+        transform.Translate(currentVelocity * Time.deltaTime);
+    }
+
+    void PreventLeavingScreen()
+    {
+        Vector3 pos = transform.position;
+
+        // Get the limits of the camera
+        Vector3 min = cam.ViewportToWorldPoint(new Vector3(0, 0, pos.z));
+        Vector3 max = cam.ViewportToWorldPoint(new Vector3(1, 1, pos.z));
+
+        // Block leaving the screen
+        pos.x = Mathf.Clamp(pos.x, min.x + halfWidth, max.x - halfWidth);
+        pos.y = Mathf.Clamp(pos.y, min.y + halfHeight, max.y - halfHeight);
+
+        transform.position = pos;
+    }
+
     Vector2 rawMove;
     private void OnMove(InputAction.CallbackContext context)
     {
@@ -77,4 +114,12 @@ public class PlayerSpaceShip : MonoBehaviour
         Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
         audioSource.PlayOneShot(fireSound, 0.8f);
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+{
+    if (other.CompareTag("Border"))
+    {
+
+    }
+}
 }

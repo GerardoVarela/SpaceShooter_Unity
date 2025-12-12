@@ -44,16 +44,17 @@ public class Debris : MonoBehaviour
         transform.Rotate(0f, 0f, rotationSpeed * orientation * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Bullet"))
+        Collider2D collider = collision.collider;
+        if (collider.CompareTag("Bullet") || collider.CompareTag("Player"))
         {
             cameraAudioSource.PlayOneShot(explodeSound, 1.5f);
 
             Instantiate(explosion, transform.position, Quaternion.identity);
 
             Destroy(gameObject);
-            Destroy(collision.gameObject);
+            if (!collider.CompareTag("Player")) Destroy(collider.gameObject);
         }
     }
 }

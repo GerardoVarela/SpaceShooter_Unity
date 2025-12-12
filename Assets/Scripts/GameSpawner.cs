@@ -17,20 +17,13 @@ public class GameSpawner : MonoBehaviour
     {
         lineTop = spawnLineTop.position;
         lineBottom = spawnLineBottom.position;
-        // StartCoroutine(LineSpawning());
+    }
 
+    public void StartInvoking()
+    {
         InvokeRepeating("SpawnEnemy", 0.5f, 3f);
         InvokeRepeating("SpawnDebris", 0.5f, 2f);
     }
-
-    // IEnumerator LineSpawning()
-    // {
-    //     for (int i = 0; i < 5; i++)
-    //     {
-    //         SpawnEnemy();
-    //         yield return new WaitForSeconds(0.5f);
-    //     }
-    // }
 
     void SpawnEnemy()
     {
@@ -50,11 +43,5 @@ public class GameSpawner : MonoBehaviour
         int randomPrefab = Random.Range(0, prefabs.Length);
 
         Instantiate(prefabs[randomPrefab], startPosition, prefabs[randomPrefab].transform.rotation);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
