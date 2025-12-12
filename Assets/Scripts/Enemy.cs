@@ -9,14 +9,14 @@ public class Enemy : MonoBehaviour
         get { return speed; }
     }
 
-    private AudioSource audioSource;
+    private AudioSource cameraAudioSource;
     public AudioClip explodeSound;
 
     public GameObject explosion;
 
     void Start()
     {
-        audioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
+        cameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
         
     }
 
@@ -30,27 +30,12 @@ public class Enemy : MonoBehaviour
         transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
     }
 
-    // private void OnTriggerEnter2D(Collider2D collision)
-    // {
-    //     if (collision.CompareTag("Bullet") || collision.CompareTag("Player"))
-    //     {
-    //         audioSource.PlayOneShot(explodeSound, 1.5f);
-
-    //         GameObject explosionPrefab = Instantiate(explosion, transform.position, Quaternion.identity);
-    //         SpriteRenderer explosionSpriteRenderer = explosionPrefab.GetComponent<SpriteRenderer>();
-    //         explosionSpriteRenderer.color = color;
-
-    //         Destroy(gameObject);
-    //         if (!collision.CompareTag("Player")) Destroy(collision.gameObject);
-    //     }
-    // }
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         Collider2D collider = collision.collider;
         if (collider.CompareTag("Bullet") || collider.CompareTag("Player"))
         {
-            audioSource.PlayOneShot(explodeSound, 1.5f);
+            cameraAudioSource.PlayOneShot(explodeSound, 1.5f);
 
             GameObject explosionPrefab = Instantiate(explosion, transform.position, Quaternion.identity);
             SpriteRenderer explosionSpriteRenderer = explosionPrefab.GetComponent<SpriteRenderer>();

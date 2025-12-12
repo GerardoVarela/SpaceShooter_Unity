@@ -14,6 +14,12 @@ public class PlayerSpaceShip : MonoBehaviour
     private AudioSource audioSource;
     public AudioClip fireSound;
 
+    [Header("Player Explosion")]
+    private AudioSource cameraAudioSource;
+    public AudioClip explodeSound;
+    public GameObject explosion;
+
+
     [Header("Controls")]
     [SerializeField] InputActionReference move;
     [SerializeField] InputActionReference shoot;
@@ -39,6 +45,7 @@ public class PlayerSpaceShip : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        cameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
 
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
@@ -111,15 +118,24 @@ public class PlayerSpaceShip : MonoBehaviour
 
     private void OnShoot(InputAction.CallbackContext context)
     {
-        Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
-        audioSource.PlayOneShot(fireSound, 0.8f);
+        if (gameManager.isGameActive)
+        {
+            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+            audioSource.PlayOneShot(fireSound, 0.8f);
+        }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-{
-    if (other.CompareTag("Border"))
+    void OnCollisionEnter2D(Collision2D collision)
     {
-
+        if (collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("Debris"))
+        {
+            int lives = gameManager.UpdateLives();
+            if (lives == 0)
+            {
+                cameraAudioSource.PlayOneShot(explodeSound, 1.5f);
+                Instantiate(explosion, transform.position, Quaternion.identity);
+                Destroy(gameObject);   
+            }
+        }
     }
-}
 }

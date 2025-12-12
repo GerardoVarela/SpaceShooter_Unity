@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+
 
 
 #if UNITY_EDITOR
@@ -9,11 +11,22 @@ using UnityEditor;
 
 public class MenuUIHandler : MonoBehaviour
 {
+    [Header("Input Action")]
+
     [SerializeField] InputActionReference pause;
 
+    [Header("Screens")]
+
     public GameObject gameStartScreen;
+    public GameObject gameOnScreen;
     public GameObject gamePausedScreen;
+    public GameObject gameOverScreen;
     public GameObject quitGameScreen;
+
+    [Header("Lives")]
+    public Image[] livesImages;
+    public Sprite heartFull;
+    public Sprite heartEmpty;
 
     private GameManager gameManager;
 
@@ -34,6 +47,14 @@ public class MenuUIHandler : MonoBehaviour
         pause.action.started -= OnPause;
     }
 
+    public void UpdateLives(int lives)
+    {
+        for (int i = 0; i < livesImages.Length; i++)
+        {
+            livesImages[i].sprite = (livesImages.Length - i <= lives) ? heartFull : heartEmpty;
+        }
+    }
+
     public void PauseGame()
     {
         Time.timeScale = 0f;
@@ -51,6 +72,13 @@ public class MenuUIHandler : MonoBehaviour
     public void StartGame() {
         gameManager.StartGame();
         gameStartScreen.SetActive(false);
+        quitGameScreen.SetActive(false);
+        gameOnScreen.SetActive(true);
+    }
+
+    public void GameOver() {
+        quitGameScreen.SetActive(true);
+        gameOverScreen.SetActive(true);
     }
 
     public void RestartGame() {

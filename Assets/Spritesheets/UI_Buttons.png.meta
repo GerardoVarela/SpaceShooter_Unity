@@ -944,7 +944,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Buttons_33
+      name: UI_Buttons_Back_1
       rect:
         serializedVersion: 2
         x: 94
@@ -966,7 +966,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Buttons_34
+      name: UI_Buttons_Back_2
       rect:
         serializedVersion: 2
         x: 110
@@ -988,7 +988,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Buttons_35
+      name: UI_Buttons_Back_3
       rect:
         serializedVersion: 2
         x: 126
@@ -1038,12 +1038,12 @@ TextureImporter:
       UI_Buttons_30: -6060881456333826050
       UI_Buttons_31: 8243139709754048065
       UI_Buttons_32: 3375412266171404303
-      UI_Buttons_33: 9101253921482926551
-      UI_Buttons_34: -4389802297396944602
-      UI_Buttons_35: -29870762031835003
       UI_Buttons_6: -3752086400668895170
       UI_Buttons_7: 5443615423995280755
       UI_Buttons_8: -7257974199788926244
+      UI_Buttons_Back_1: 9101253921482926551
+      UI_Buttons_Back_2: -4389802297396944602
+      UI_Buttons_Back_3: -29870762031835003
       UI_Buttons_Menu_1: 5802799835174370958
       UI_Buttons_Menu_2: 9160267285729102424
       UI_Buttons_Menu_3: -6187156380514981872
