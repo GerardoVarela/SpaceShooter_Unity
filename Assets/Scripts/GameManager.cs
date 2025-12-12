@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
 
     public bool isGameActive = false;
     private int lives = 3;
-    private int score = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

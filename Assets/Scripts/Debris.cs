@@ -1,4 +1,3 @@
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class Debris : MonoBehaviour
@@ -12,17 +11,12 @@ public class Debris : MonoBehaviour
     private AudioSource cameraAudioSource;
     public AudioClip explodeSound;
 
-    private Animator debrisAnimator;
-
-
     public GameObject explosion;
 
 
     void Start()
     {
         cameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
-
-        debrisAnimator = GetComponent<Animator>();
 
         rotationSpeed = Random.Range(minRotationSpeed, maxRotationSpeed);
         orientation = Random.Range(0, 2) == 0 ? 1 : -1;
